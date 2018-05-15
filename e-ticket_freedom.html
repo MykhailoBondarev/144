@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>E-ticket Freedom</title>
+</head>
+<style>	
+	@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,500,700');
+
+/*	@font-face 
+	{ 
+	 	font-family: "DINPro-Bold"; src: url("D:/Pic/ad/freedom/DINPro-Bold.ttf");  
+	}
+
+	@font-face
+	{
+		font-family: "DINPro-Light"; src: url("D:/Pic/ad/freedom/DINPro-Light.ttf");
+	}
+
+	@font-face
+	{
+		font-family: "DINPro-Medium"; src: url("D:/Pic/ad/freedom/DINPro-Medium.ttf");
+	}
+
+	@font-face
+	{
+		font-family: "DINPro-Regular"; src: url("D:/Pic/ad/freedom/DINPro-Regular.ttf");
+	}	*/ 	
+
+     .main-ticket /*[ObjectId] */
+    { 
+    	max-width: 900px; 
+    	margin: 50px auto;
+    	font-family: 'DINPro-Regular', 'Fira Sans Condensed', sans-serif;
+        font-weight: 400;
+    	font-size: 14px; 
+    }
+
+    .head
+    {    	
+       border-bottom: 3px solid #61256a;
+    }
+
+    .head> *
+    {
+	   float: left; 
+	   text-align: center;
+    }
+
+    .barcode, .logo
+    {
+    	height: 70px;
+    	width: 210px;   
+        padding-top: 20px;
+    }
+
+    .orderid
+    {
+    	width: 50%;
+    	font-size: 18px;
+    }
+
+    .orderid p:nth-child(2)
+    {  
+    	font-size: 20px;
+    }
+
+    .logo img
+    {
+    	max-width: 100%;
+    }
+
+    .head, .info, .address-date-box, .eventplace-box, .rules-box, .rek-box
+    {
+		overflow: hidden;
+    }
+
+    .left-info, .right-info
+    {  
+    	float: left;
+    }
+
+    .left-info
+    {
+    	width: 30%;
+    }
+
+    .right-info
+    {
+    	width: 70%;
+    }
+
+    .event-img
+    {
+    	max-height: 330px; 
+    	max-width: 250px;
+    	z-index:1;
+    	margin: 14px 0;
+    }
+
+    .event-name
+    {
+    	font-size: 35px;
+    	font-family: 'DINPro-Bold', 'Fira Sans Condensed', sans-serif;
+    	font-weight: 500;
+    }
+
+   .event-name p span[CheckEventName="UseTicketInfo"]
+   {
+        display: none;
+    }
+
+    .address-box, .event-date, .rules-list
+    {
+    	width: 50%;
+    	float: left;
+    }
+
+    .address-box p:first-child
+    {
+    	font-size: 25px;
+    	text-transform: uppercase;
+    }
+
+    .address-box p 
+    {
+		margin: 5px 0;
+    }
+
+    .eventplace-box
+    {
+    	width: 100%;
+    	margin-top: 15px;
+    	margin-bottom: 50px;
+    }
+
+    .event-date
+    {
+    	font-size: 35px;
+    }
+
+    .event-date p
+    {
+    	margin: 10px 0;
+    	font-family: 'DINPro-Bold', 'Fira Sans Condensed', sans-serif;
+        font-weight: 500;
+    }
+
+    .eventplace-box div
+    {
+    	width: 25%;
+    	float: left;
+    }
+
+    .eventplace-box div p
+    {
+		margin: 0;
+    }
+
+    .eventplace-box div p:nth-child(2)
+    {
+    	font-weight: bold;
+    	font-size: 30px;    	
+    }
+
+    .inform-mark
+    {
+		margin-left: 30px;
+		position: relative;
+		font-size: 16px;
+    }
+
+	.inform-mark::before
+	{
+		content: "i";
+		position: absolute;
+		left: -30px;
+		top: 5px;
+		display: block;
+		border-radius: 50%;
+		padding: 1px 8px;
+		border: 2px solid #61256a;
+		color: #61256a;
+		font-weight: bold;
+	}
+
+	.clearfix::after
+	{
+    	content: "";
+    	display: table;
+    	clear: both;
+	}
+	.decoration-line
+	{
+		position: relative;
+		width: 60%;		
+		overflow: visible;
+	}	
+
+
+	.decoration-line::before
+	{
+		content: "";
+		position: absolute;
+		display: block;
+		margin-left: -250px;		
+		width: 250%;
+		border-bottom: 1px solid #61256a;
+	}
+
+	.h_bold
+	{
+		font-weight: bold;
+		font-size: 20px;
+		margin-left: 30px;
+		margin-top: 10px; 
+		letter-spacing: 5px;
+	}
+
+	.rules-list li 
+	{
+		font-size: 14px;
+		line-height: 18px;
+	}
+
+	.rek-long-holder
+	{
+		margin-bottom: 15px;
+	}
+
+	.rek-long-holder img
+	{
+		width: 100%;
+		border-radius: 7px;
+		height: 80px;
+		overflow: hidden;
+	}
+	.rek-block 
+	{
+		width: 33%;
+		margin: 2% auto;
+		float: left;
+		text-align: center;
+	}
+
+	.rek-block img
+	{
+		border-radius: 7px;
+		max-width: 250px;
+	}
+
+@media print {
+	.main-ticket /*[ObjectId] */ 
+	{
+		zoom: 70%;
+	}
+}
+</style>
+<body>
+<div class="main-ticket">
+	<div class="head">		
+		<div class="barcode"> <!-- [barcode:width=2;height=70;text=1] -->
+			<img style='display:inline;' src='
+           data:image/gif;base64,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
+            '/>
+        </div>
+		<div class="orderid">
+			<p>Електронний квиток</p>
+			<p>№1295486795</p>
+		</div>
+		<!-- [resources:Order.Affiliate.TicketOfficeSettings.ETicketLogo] -->
+		<div class="logo"><img src="img/freedom_logo.png" alt="Logo"></div>	
+	</div>
+	<div class="info">
+		<!--[resources:Event.ImageBigPath]-->
+		<div class="left-info"><img src="img/event-image.jpg" alt="Event img" class="event-img"></div>
+		<div class="right-info">
+			<div class="event-name">
+				<p>Stand Up Клуб / Стендап Клуб, На Бис</p>
+			</div>
+			<div class="address-date-box">
+				<div class="address-box">
+					<p>freedom</p>
+					<p>м. Київ, вул. Кирилівська, 134</p>
+				</div>
+				<div class="event-date">
+					<p>04/04/2018, 19:00</p>
+				</div>				
+			</div>
+			<div class="eventplace-box">
+				<div>
+					<p>Поверх:</p>
+					<p>2</p>
+			    </div>
+				<div>
+					<p>Ряд:</p>
+					<p>3</p>
+				</div>
+				<div>
+					<p>Місце:</p>
+					<p>23</p>
+				</div>
+				<div>
+					<p>Ціна:</p>
+					<p>2300 грн</p>
+				</div>
+			</div>
+			<div class="info-box">				
+				<p class="inform-mark">Оплата готівкою можлива при покупці в касі або у кур'єра (при замовленні квитків з доставкою).</p>
+			</div>
+		</div>
+	</div>
+	<div class="decoration-line clearfix"></div>
+	<div class="rules-box">
+		<div class="rules-list">
+			<div class="h_bold">Правила:</div>
+            <ol>
+                <li>Цей електронний квиток надає право відвідування заходу.</li>
+                <li>Електронний квиток заборонено копіювати та передавати копії третім особам. Унікальний ідентифікатор (штрих-код), який міститься на цьому електронному квитку, гарантує вам право на одноразове відвідування заходу. Пред’явлення третіми особами електронного квитка з ідентичним ідентификатором позбавляє вас права на відвідування заходу.</li>
+                <li>У разі виникнення будь-яких проблем, таких як неможливість прочитати ідентифікатор (штрих-код), фізичне пошкодження цього електронного квитка або в інших випадках, необхідно звернутися в спеціалізований пункт обміну або в каси, перелік яких є на сайті karabas.com.</li>
+                <li>Перевірка електронних квитків та прохід на захід здійснюється у відповідності з правилами, що встановлені організаторами або адміністраціей залу. Для проходження процедури ідентифікації електронного квитка та з метою перевірки права використання цього електронного квитка рекомендовано мати при собі документ, що підтверджує особу.</li>
+                <li>Вартість цього електронного квитка може бути повернена лише у разі відміни, заміни або переноса заходу на умовах, встановлених офертой. Вартість сервісного або інших додаткових сборів, що взимається при продажу електронного квитка, поверненню не підлягає.</li>
+                <li>З умовами оферти ви можете ознайомитися на сайті karabas.com. Ці правила не є офертою.</li>
+            </ol>
+		</div>
+		<div class="rules-list">
+			<div class="h_bold">Rules:</div>
+            <ol>
+                <li>Your electronic ticket permits admission to the event.</li>
+                <li>It is not permitted to copy the electronic tickets, or give a copy to third parties. A unique identifying code (bar-code) is printed on the electronic ticket, and guarantees your admission for one single entry to the event. If you pass your electronic ticket and unique identifying code to third parties, your own admission to the event will be forfeited.</li>
+                <li>If you encounter any kind of difficulties - for example, your unique identifying code is unreadable, or your electronic ticket becomes physically damaged, or other similar incidents - you should contact one of the special ticket-return locations or ticket-desks indicated on our website at www.karabas.com.</li>
+                <li>Checking your electronic ticket and admission to the event take place in accordance with the conditions laid down by the organisers or venue administration. While your electronic ticket is being scanned we recommend you keep an ID document to hand, and keep it while the validity of your ticket is confirmed.</li>
+                <li>The price of your electronic ticket can be refunded only in case the event is cancelled, changed or postponed, according to the advertised conditions. The costs of service fees or other handling charges connected with the issue of your ticket cannot be refunded.</li>
+                <li>You can read the full conditions of this offer on our site at www.karabas.com. The document you are reading does not constitute these conditions.</li>
+            </ol>
+		</div>
+	</div>
+	<div class="rek-long-holder">
+		<img src="img/long-rek.jpg" alt="">
+	</div>
+	<div class="decoration-line"></div>
+	<div class="rek-box">
+		<div class="rek-block">
+			<img src="img/rek1.jpg" alt="Event img">
+		</div>
+		<div class="rek-block">
+			<img src="img/rek2.jpg" alt="Event img">
+		</div>
+		<div class="rek-block">
+			<img src="img/rek3.jpg" alt="Event img">
+		</div>
+	</div>
+	<div class="rek-text">
+		<p>З питань розмiщення реклами +380 (44) 390 390 39 39</p>
+	</div>
+</div>
+</body>
+</html>
